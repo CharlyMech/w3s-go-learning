@@ -8,9 +8,10 @@ import (
 Contents from lessons (Go Variables chapter):
 - Declare variables: https://www.w3schools.com/go/go_variables.php
 - Declare multiple variables: https://www.w3schools.com/go/go_variable_multi.php
+- Naming rules: https://www.w3schools.com/go/go_variable_naming_rules.php
 */
 
-// Declare variables:
+// 1- Declare variables:
 // ! outsiderVar := "This will lead to an error" -> Outsider variables cannot be use ":=", only inside functions
 var noValueOutsider int // -> Global file variables
 
@@ -40,6 +41,7 @@ func declareVariables() {
 	fmt.Printf("Boolean value: %v (%T)\n", boolean, boolean)
 }
 
+// 2- Declare multiple variables
 func multipleDeclarations() {
 	var a, b, c int = 1, 2, 3
 
@@ -69,6 +71,63 @@ func multipleDeclarations() {
 
 }
 
+// 3- Naming rules
+func namingRules() {
+	// A variable name must start with a letter or an underscore character (_)
+	fmt.Println("A variable name must start with a letter or an underscore character (_):")
+	fmt.Println("\t- ✅ '_x' ; ✅ 'x'")
+	fmt.Println("\t- ❌ '1x' ; ❌ '-x'")
+
+	fmt.Println("")
+
+	// A variable name cannot start with a digit
+	fmt.Println("A variable name cannot start with a digit:")
+	fmt.Println("\t- ✅ 'x' ; ❌ '1x'")
+
+	fmt.Println("")
+
+	// A variable name can only contain alpha-numeric characters and underscores (a-z, A-Z, 0-9, and _ )
+	fmt.Println("A variable name can only contain alpha-numeric characters and underscores (a-z, A-Z, 0-9, and _ ):")
+	fmt.Println("\t- ✅ 'my_var' ; ✅ 'var2' ; ✅ 'myVar'")
+	fmt.Println("\t- ❌ 'my-var' ; ❌ 'var!'")
+
+	fmt.Println("")
+
+	// Variable names are case-sensitive (age, Age and AGE are three different variables)
+	fmt.Println("Variable names are case-sensitive (age, Age and AGE are three different variables):")
+	fmt.Println("\t 'x' and 'X' variable names, are not the same!")
+
+	fmt.Println("")
+
+	// There is no limit on the length of the variable name
+	fmt.Println("There is no limit on the length of the variable name:")
+	fmt.Println("\t- ✅ 'x' is a valid variable name!")
+	fmt.Println("\t- ✅ 'abdcdefghijklmnopqrstuvwxyzABCDEFG...' is a valid variable name too!")
+
+	fmt.Println("")
+
+	// A variable name cannot contain spaces
+	fmt.Println("A variable name cannot contain spaces:")
+	fmt.Println("\t- ✅ 'myVar' and 'my_var' are valid variable names!")
+	fmt.Println("\t- ❌ 'my var' is not a valid variable names!")
+
+	fmt.Println("")
+
+	// The variable name cannot be any Go keywords
+	fmt.Println("The variable name cannot be any Go keywords:")
+	fmt.Println("\t- ✅ 'myVar' ; ✅ 'typeName' ; ✅ 'funcName'")
+	fmt.Println("\t- ❌ 'var' ; ❌ 'type' ; ❌ 'func' ; ❌ 'if' ; ❌ 'for' ; ❌ 'return'")
+
+	fmt.Println("")
+
+	// Variable naming types
+	fmt.Println("Go variables can be named in different ways:")
+	fmt.Println("\t- Snake case (not in common Go convention): 'snake_case'.")
+	fmt.Println("\t- Camel case (not exported vars or functions): 'camelCase'.")
+	fmt.Println("\t- Pascal case (exported vars or functions): 'PascalCase'.")
+
+}
+
 func main() {
 	fmt.Println("- Variable declarations and types -")
 	declareVariables()
@@ -77,4 +136,9 @@ func main() {
 
 	fmt.Println("- Multiple variable declaration -")
 	multipleDeclarations()
+
+	fmt.Println("")
+
+	fmt.Println("- Naming rules -")
+	namingRules()
 }
