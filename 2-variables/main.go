@@ -4,6 +4,12 @@ import (
 	"fmt"
 )
 
+/*
+Contents from lessons (Go Variables chapter):
+- Declare variables: https://www.w3schools.com/go/go_variables.php
+- Declare multiple variables: https://www.w3schools.com/go/go_variable_multi.php
+*/
+
 // Declare variables:
 // ! outsiderVar := "This will lead to an error" -> Outsider variables cannot be use ":=", only inside functions
 var noValueOutsider int // -> Global file variables
@@ -34,7 +40,41 @@ func declareVariables() {
 	fmt.Printf("Boolean value: %v (%T)\n", boolean, boolean)
 }
 
+func multipleDeclarations() {
+	var a, b, c int = 1, 2, 3
+
+	fmt.Println("These variables where declared in one line with type declaration:")
+	fmt.Printf("\t- Variable 'a': %v\n", a)
+	fmt.Printf("\t- Variable 'b': %v\n", b)
+	fmt.Printf("\t- Variable 'c': %v\n", c)
+
+	var x, y = 1, "Hello"
+	i, j := 2.5, false
+
+	fmt.Println("These variables where declared in one line without type declaration:")
+	fmt.Printf("\t- Variable 'x': %v (%T)\n", x, x)
+	fmt.Printf("\t- Variable 'y': %v (%T)\n", y, y)
+	fmt.Printf("\t- Variable 'i': %v (%T)\n", i, i)
+	fmt.Printf("\t- Variable 'j': %v (%T)\n", j, j)
+
+	var (
+		q int
+		w float32 = 3.14
+		e string  = "World"
+	)
+	fmt.Println("These variables where declared in var block:")
+	fmt.Printf("\t- Variable 'q': %v (%T)\n", q, q)
+	fmt.Printf("\t- Variable 'w': %v (%T)\n", w, w)
+	fmt.Printf("\t- Variable 'e': %v (%T)\n", e, e)
+
+}
+
 func main() {
 	fmt.Println("- Variable declarations and types -")
 	declareVariables()
+
+	fmt.Println("")
+
+	fmt.Println("- Multiple variable declaration -")
+	multipleDeclarations()
 }
